@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::resource('products', "App\Http\Controllers\ProductsController")->except(['show']);
+Route::get('product-list', "App\\Http\\Controllers\\ProductsController@list" );
+Route::get("/{product}", "App\Http\Controllers\ProductsController@show");
+
